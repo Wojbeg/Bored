@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/holo_red_light"
+    android:id="@+id/favContainer"
+    >
+
+    <ProgressBar
+        android:id="@+id/loadingIdeasProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:translationZ="2dp"
+        android:animateLayoutChanges="true"
+        android:visibility="gone"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/favouriteTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/likedIt"
+        android:textColor="@color/text_color"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/noIdeasImage"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_below="@id/favouriteTitle"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/circle_shape"
+        android:padding="10dp"
+        android:src="@drawable/ic_twotone_lightbulb_24"
+        />
+
+    <TextView
+        android:id="@+id/noIdeasInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/noIdeasImage"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/text_color"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        android:text="@string/noIdeas"
+        />
+
+    <TextView
+        android:id="@+id/noIdeasMoreInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/noIdeasInfo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center"
+        android:textColor="@color/text_color"
+        android:textSize="15sp"
+        android:visibility="visible"
+        android:text="@string/noIdeasMore"
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ideasRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/favouriteTitle"
+        android:nestedScrollingEnabled="false"
+
+        android:visibility="invisible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.BoredApp.AppWidget.Container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.BoredApp.AppWidgetContainer"
+    android:background="@android:color/transparent">
+
+    <RelativeLayout
+        android:id="@+id/boredWidgetContainer"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_shape2"
+        >
+
+        <ImageView
+            android:id="@+id/widgetBulb"
+            android:layout_width="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_twotone_lightbulb_24"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/widgetBulb"
+            android:text="@string/getIdea"
+            android:layout_centerHorizontal="true"
+            android:textSize="10sp"
+            android:textColor="@color/nice_blue"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

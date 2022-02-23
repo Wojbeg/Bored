@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">Bored</string>
+
+    <string name="getIdea">Get Idea</string>
+
+    <string name="home">Home</string>
+    <string name="favourite">Saved</string>
+
+    <string name="ideaTitle">Title</string>
+    <string name="ideaLinkTitle">Link: </string>
+    <string name="ideaTypeTitle">Type: </string>
+    <string name="ideaParticipantsTitle">Participants: </string>
+    <string name="ideaAccessibilityTitle">Accessibility: </string>
+    <string name="ideaAccessTitle">Access: </string>
+    <string name="ideaPriceTitle">Price: </string>
+
+    <string name="likedIt">You Liked it</string>
+    <string name="noIdeas">No Saved Ideas</string>
+    <string name="noIdeasMore">Nothing saved yet.\nWhile reading new idea\nclick heart button to save it</string>
+
+    <string name="savedIdeas">Ideas:</string>
+
+    <string name="networkUnavailable">No network connection</string>
+    <string name="errorMessage">An error has occurred,\nunable to download data</string>
+
+    <string name="noActivityFound">We are sorry, but no activity was found with the specified parameters</string>
+
+    <string name="taskSaved">Task saved successfully</string>
+    <string name="taskNotSaved">Task not saved, an error occurred</string>
+
+    <string name="errorLoadingMessage">An error has occurred,\nunable to load data</string>
+
+    <string name="add_widget">Add bored widget</string>
+
+    <string name="app_widget_description">Get an idea by clicking on the widget</string>
+    <string name="ideas_list_widget_description">See saved ideas as list in widget</string>
+
+    <string name="downloadingData">Downloading idea</string>
+    <string name="saveIdea">Save Idea</string>
+    <string name="appwidget_text">EXAMPLE</string>
+
+    <string name="errorDeleteIdea">Sorry, we are not able to delete this idea</string>
+    <string name="deletedIdea">Idea deleted successfully</string>
+    <string name="retrievedIdea">Idea was successfully retrieved</string>
+    <string name="unableToRetrieve">Sorry, we are unable to retrieve this idea</string>
+    <string name="undo">Undo</string>
+
+    <string-array name="ideaTypes">
+        <item>Random</item>
+        <item>Education</item>
+        <item>Recreational</item>
+        <item>Social</item>
+        <item>Diy</item>
+        <item>Charity</item>
+        <item>Cooking</item>
+        <item>Relaxation</item>
+        <item>Music</item>
+        <item>Busywork</item>
+    </string-array>
+
+    <string name="accessibilityAmount">Accessibility should be\n between 0.0 and 1.0</string>
+    <string name="accessibilityInfo">A factor describing how possible\nan
+        event is to do with zero\nbeing the most accessible</string>
+
+    <string name="typeInfo">Type of the activity</string>
+    <string name="participantsInfo">The number of people that\n this activity could involve</string>
+    <string name="priceInfo">A factor describing the\n cost of the event with zero being free</string>
+    <string name="priceAmount">Price should be\n between 0.0 and 1.0</string>
+
+    <string name="random">Random</string>
+    <string name="custom">Custom</string>
+    <string name="key">Key</string>
+    <string name="type">Type</string>
+    <string name="participants">Participants</string>
+    <string name="priceRange">Price range:</string>
+    <string name="randomPeopleAmountStr">Random num of participants</string>
+    <string name="price">Price</string>
+    <string name="accessibilityRange">Accessibility range:</string>
+    <string name="accessibility">Accessibility</string>
+
+    <string name="incorrectNumberOfParticipants">Incorrect number of participants, should be greater than 0</string>
+
+</resources>

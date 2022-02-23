@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="8dp"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="7dp"
+    app:cardElevation="5dp"
+    android:animateLayoutChanges="true"
+    android:clickable="false"
+    android:focusable="false"
+    android:background="@color/white"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:clickable="false"
+        android:focusable="false"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/ideaTitle"
+            android:textAlignment="textStart"
+            android:textColor="@color/text_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"
+
+            app:layout_constraintEnd_toStartOf="@+id/shareIdea"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title" />
+
+        <ImageView
+            android:id="@+id/shareIdea"
+            android:layout_width="28dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_baseline_share_24"
+            app:layout_constraintBottom_toBottomOf="@+id/Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/Title" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:animateLayoutChanges="true"
+            app:layout_constraintTop_toBottomOf="@+id/Title"
+            android:layout_marginTop="15dp"
+            android:visibility="visible"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/ideaInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:animateLayoutChanges="true"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/personIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_twotone_person_24" />
+
+                <TextView
+                    android:id="@+id/personAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/personIcon"
+                    android:textColor="@color/nice_blue"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:text=": 1" />
+
+                <TextView
+                    android:id="@+id/ideaType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/personAmount"
+                    android:text="@string/ideaTypeTitle"
+                    android:textColor="@color/nice_blue"
+                    android:textSize="15sp"
+                    tools:text="Type: " />
+
+                <TextView
+                    android:id="@+id/ideaTypeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/ideaType"
+                    android:textColor="@color/nice_blue"
+                    android:textSize="15sp"
+                    tools:text="Games" />
+
+                <ImageView
+                    android:id="@+id/PriceIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/ideaTypeText"
+                    android:src="@drawable/ic_baseline_attach_money_24" />
+
+                <TextView
+                    android:id="@+id/priceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/PriceIcon"
+                    android:textColor="@color/nice_blue"
+                    android:textSize="15sp"
+                    tools:text="0.1" />
+
+                <TextView
+                    android:id="@+id/accessibilityTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/priceText"
+                    android:src="@drawable/ic_baseline_attach_money_24"
+                    android:text="@string/ideaAccessTitle"
+                    android:textColor="@color/nice_blue"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/accessibilityText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/accessibilityTitle"
+                    android:textColor="@color/nice_blue"
+                    android:textSize="15sp"
+                    tools:text="0.1" />
+
+                <ImageView
+                    android:id="@+id/hasLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="1dp"
+                    android:src="@drawable/ic_baseline_public_24"
+                    android:visibility="gone" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/LinkTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ideaInfo"
+                android:animateLayoutChanges="true"
+                android:text="@string/ideaLinkTitle"
+                android:textColor="@color/nice_blue"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/linkText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:animateLayoutChanges="true"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:textColor="@color/nice_blue"
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:layout_toRightOf="@id/LinkTitle"
+                android:layout_toEndOf="@id/LinkTitle"
+                android:layout_alignTop="@id/LinkTitle"
+                tools:text="" />
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

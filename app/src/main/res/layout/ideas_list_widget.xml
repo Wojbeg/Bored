@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/transparent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="4dp"
+        android:background="@color/nice_red"
+        >
+
+        <TextView
+            android:id="@+id/start_app"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="@string/savedIdeas"
+            android:textColor="@android:color/white" />
+
+        <ImageButton
+            android:id="@+id/getNewIdeaWidgetBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:src="@drawable/ic_twotone_lightbulb_24"
+            android:textColor="@android:color/white"
+
+            />
+
+        <ImageButton
+            android:id="@+id/refreshBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:src="@drawable/ic_baseline_refresh_24"
+            android:textColor="@android:color/white"
+
+             />
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/ideasListViewWidget"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        />
+
+    <TextView
+        android:id="@+id/emptyInformation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/noIdeasMore"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        />
+
+</LinearLayout>

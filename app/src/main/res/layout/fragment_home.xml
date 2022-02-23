@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/holo_red_light"
+    android:fillViewport="true"
+    android:animateLayoutChanges="true"
+    android:verticalScrollbarPosition="right"
+    android:id="@+id/scrollView"
+    >
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:paddingBottom="50dp">
+
+        <ProgressBar
+            android:id="@+id/savingProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="2dp"
+            android:translationZ="2dp"
+            android:animateLayoutChanges="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/FeelBored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feel Bored?"
+            app:layout_constraintVertical_bias="0.1"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/getIdeaBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="@color/nice_blue"
+            android:text="@string/getIdea"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/FeelBored"
+            app:layout_constraintStart_toStartOf="@+id/FeelBored"
+            app:layout_constraintTop_toBottomOf="@+id/FeelBored" />
+
+        <!--
+        <ImageView
+            android:id="@+id/settingsBtn"
+            android:layout_width="35dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_arrow_drop_down_24"
+            android:animateLayoutChanges="true"
+            android:rotation="90"
+            app:layout_constraintBottom_toBottomOf="@+id/settingsBtnContainer"
+            app:layout_constraintStart_toEndOf="@+id/settingsBtnContainer"
+            app:layout_constraintTop_toTopOf="@+id/settingsBtnContainer" />
+        -->
+
+        <RadioGroup
+            android:id="@+id/settingsBtnContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/IdeaShowCardView"
+            app:layout_constraintStart_toStartOf="@+id/IdeaShowCardView"
+            app:layout_constraintTop_toBottomOf="@+id/getIdeaBtn">
+
+            <RadioButton
+                android:id="@+id/RandomBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:background="@drawable/button_selector"
+                android:button="@null"
+                android:text="@string/random"
+                android:textColor="@drawable/button_text_selector"
+                android:checked="true"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                />
+
+            <RadioButton
+                android:id="@+id/CustomBtn"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/custom"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="@drawable/button_selector"
+                android:textColor="@drawable/button_text_selector"
+                android:button="@null"
+                />
+
+        </RadioGroup>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ideaSearchSettings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:animateLayoutChanges="true"
+            android:backgroundTint="@color/light_blue_200"
+            android:visibility="gone"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsBtnContainer">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/settingsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:animateLayoutChanges="true"
+                android:visibility="visible">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/type"
+                    android:orientation="horizontal"
+                    android:textColorHint="@color/white"
+                    app:boxStrokeColor="@color/outlined_box_selector"
+                    app:boxStrokeWidth="2dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/typeDropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="none"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:endIconTint="@color/white"
+                        android:dropDownSelector="@color/white"
+                        tools:text="test" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/randomPeopleAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:buttonTint="@color/nice_blue"
+                    android:text="@string/randomPeopleAmountStr"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedTextFieldParticipants"
+                    style="@style/WhiteBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:hint="@string/participants"
+                    android:orientation="horizontal"
+                    android:textColorHint="@color/white"
+                    app:boxStrokeColor="@color/outlined_box_selector"
+                    app:boxStrokeWidth="2dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toEndOf="@+id/textInputLayout"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/participantsNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:text="1"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:text="1" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/priceRange"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/randomPeopleAmount" />
+
+                <com.google.android.material.slider.RangeSlider
+                    android:id="@+id/priceSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:stepSize="0.1"
+                    android:valueFrom="0.0"
+                    android:valueTo="1.0"
+                    app:haloColor="@color/nice_red_light"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    app:thumbColor="@color/nice_blue"
+                    app:thumbStrokeColor="@color/nice_blue"
+                    app:tickColor="@color/nice_gray"
+                    app:trackColor="@color/nice_red_light" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/accessibilityRange"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/priceSlider" />
+
+
+                <com.google.android.material.slider.RangeSlider
+                    android:id="@+id/accessibilitySlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:stepSize="0.1"
+                    android:valueFrom="0.0"
+                    android:valueTo="1.0"
+                    app:haloColor="@color/nice_red_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:thumbColor="@color/nice_blue"
+                    app:thumbStrokeColor="@color/nice_blue"
+                    app:tickColor="@color/nice_gray"
+                    app:trackColor="@color/nice_red_light" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/IdeaShowCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+
+            android:animateLayoutChanges="true"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ideaSearchSettings"
+            >
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/IdeaContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:animateLayoutChanges="true"
+                android:layout_margin="5dp">
+
+                <ProgressBar
+                    android:id="@+id/loadingProgressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="2dp"
+                    android:translationZ="2dp"
+                    android:animateLayoutChanges="true"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/TitleHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="@string/ideaTitle"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_color"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Title" />
+
+                <TextView
+                    android:id="@+id/LinkTitleHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/ideaLinkTitle"
+                    android:textColor="@color/text_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/TitleHome" />
+
+                <TextView
+                    android:id="@+id/linkTextHome"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+
+                    android:animateLayoutChanges="true"
+                    android:autoLink="web"
+                    android:ellipsize="end"
+                    android:linksClickable="true"
+                    android:textColor="@color/text_color"
+                    android:textSize="18sp"
+
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/LinkTitleHome"
+                    app:layout_constraintTop_toTopOf="@+id/LinkTitleHome"
+                    tools:text="" />
+
+                <TextView
+                    android:id="@+id/TypeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/ideaTypeTitle"
+                    android:textColor="@color/text_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linkTextHome" />
+
+                <TextView
+                    android:id="@+id/ideaTypeHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/TypeTitle"
+                    app:layout_constraintStart_toEndOf="@+id/TypeTitle"
+                    app:layout_constraintTop_toTopOf="@+id/TypeTitle"
+                    tools:text="Games" />
+
+                <TextView
+                    android:id="@+id/NumOfParticipantsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/ideaParticipantsTitle"
+                    android:textColor="@color/text_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/TypeTitle" />
+
+                <TextView
+                    android:id="@+id/participantsTextHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/NumOfParticipantsTitle"
+                    app:layout_constraintStart_toEndOf="@+id/NumOfParticipantsTitle"
+                    app:layout_constraintTop_toTopOf="@+id/NumOfParticipantsTitle"
+                    tools:text="10" />
+
+                <TextView
+                    android:id="@+id/AccessibilityTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/ideaAccessibilityTitle"
+                    android:textColor="@color/text_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/NumOfParticipantsTitle" />
+
+                <TextView
+                    android:id="@+id/accessibilityTextHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/AccessibilityTitle"
+                    app:layout_constraintStart_toEndOf="@+id/AccessibilityTitle"
+                    app:layout_constraintTop_toTopOf="@+id/AccessibilityTitle"
+                    tools:text="0.1" />
+
+                <TextView
+                    android:id="@+id/PriceTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/ideaPriceTitle"
+                    android:textColor="@color/text_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/AccessibilityTitle" />
+
+                <TextView
+                    android:id="@+id/PriceTextHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/PriceTitle"
+                    app:layout_constraintStart_toEndOf="@+id/PriceTitle"
+                    app:layout_constraintTop_toTopOf="@+id/PriceTitle"
+                    tools:text="0.1" />
+
+                <ImageView
+                    android:id="@+id/saveBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_baseline_favorite_border"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/PriceTitle" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

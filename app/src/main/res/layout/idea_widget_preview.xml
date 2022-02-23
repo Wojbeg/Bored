@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginVertical="5dp"
+    android:elevation="5dp"
+    android:animateLayoutChanges="true"
+    android:clickable="false"
+    android:focusable="false"
+    android:background="@drawable/idea_preview_corners"
+    android:id="@+id/ideaPreviewWidgetContainer"
+    >
+
+    <LinearLayout
+        android:id="@+id/ideaWidget"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:clickable="false"
+        android:focusable="false"
+        android:padding="10dp"
+
+        android:orientation="vertical"
+        android:background="@android:color/transparent"
+        >
+
+        <TextView
+            android:id="@+id/ideaTitleWidget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ideaTitle"
+            android:textAlignment="textStart"
+            android:textColor="@color/text_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:animateLayoutChanges="true"
+            android:layout_marginTop="5dp"
+            android:visibility="visible"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/personIconWidget"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_twotone_person_24" />
+
+            <TextView
+                android:id="@+id/personAmountWidget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/nice_blue"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                tools:text=": 1" />
+
+            <TextView
+                android:id="@+id/ideaTypeWidget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@string/ideaTypeTitle"
+                android:textColor="@color/nice_blue"
+                android:textSize="11sp"
+                tools:text="Type: " />
+
+            <TextView
+                android:id="@+id/ideaTypeTextWidget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/nice_blue"
+                android:textSize="11sp"
+                tools:text="Games" />
+
+            <ImageView
+                android:id="@+id/PriceIconWidget"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ic_baseline_attach_money_24" />
+
+            <TextView
+                android:id="@+id/priceTextWidget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/nice_blue"
+                android:textSize="11sp"
+                tools:text="0.1" />
+
+            <TextView
+                android:id="@+id/accessibilityTitleWidget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ic_baseline_attach_money_24"
+                android:text="@string/ideaAccessTitle"
+                android:textColor="@color/nice_blue"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/accessibilityTextWidget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/nice_blue"
+                android:textSize="11sp"
+                tools:text="0.1" />
+
+
+            <ImageView
+                android:id="@+id/hasLinkWidget"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ic_baseline_public_24"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
